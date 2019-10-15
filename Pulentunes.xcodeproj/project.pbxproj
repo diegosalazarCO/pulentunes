@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		354BBD0D235690A1003574EA /* SearchScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD07235690A1003574EA /* SearchScenePresenter.swift */; };
+		354BBD0E235690A1003574EA /* SearchSceneWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD08235690A1003574EA /* SearchSceneWorker.swift */; };
+		354BBD0F235690A1003574EA /* SearchSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD09235690A1003574EA /* SearchSceneRouter.swift */; };
+		354BBD10235690A1003574EA /* SearchSceneModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD0A235690A1003574EA /* SearchSceneModels.swift */; };
+		354BBD11235690A1003574EA /* SearchSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD0B235690A1003574EA /* SearchSceneViewController.swift */; };
+		354BBD12235690A1003574EA /* SearchSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD0C235690A1003574EA /* SearchSceneInteractor.swift */; };
 		35914F9323568613005297D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35914F9223568613005297D8 /* AppDelegate.swift */; };
-		35914F9523568613005297D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35914F9423568613005297D8 /* ViewController.swift */; };
 		35914F9823568613005297D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35914F9623568613005297D8 /* Main.storyboard */; };
 		35914F9A23568615005297D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35914F9923568615005297D8 /* Assets.xcassets */; };
 		35914F9D23568615005297D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35914F9B23568615005297D8 /* LaunchScreen.storyboard */; };
@@ -26,9 +31,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		354BBD07235690A1003574EA /* SearchScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScenePresenter.swift; sourceTree = "<group>"; };
+		354BBD08235690A1003574EA /* SearchSceneWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSceneWorker.swift; sourceTree = "<group>"; };
+		354BBD09235690A1003574EA /* SearchSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSceneRouter.swift; sourceTree = "<group>"; };
+		354BBD0A235690A1003574EA /* SearchSceneModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSceneModels.swift; sourceTree = "<group>"; };
+		354BBD0B235690A1003574EA /* SearchSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSceneViewController.swift; sourceTree = "<group>"; };
+		354BBD0C235690A1003574EA /* SearchSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSceneInteractor.swift; sourceTree = "<group>"; };
 		35914F8F23568613005297D8 /* Pulentunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulentunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35914F9223568613005297D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35914F9423568613005297D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		35914F9723568613005297D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35914F9923568615005297D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35914F9C23568615005297D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +66,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		354BBD13235690A7003574EA /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				354BBD07235690A1003574EA /* SearchScenePresenter.swift */,
+				354BBD08235690A1003574EA /* SearchSceneWorker.swift */,
+				354BBD09235690A1003574EA /* SearchSceneRouter.swift */,
+				354BBD0A235690A1003574EA /* SearchSceneModels.swift */,
+				354BBD0B235690A1003574EA /* SearchSceneViewController.swift */,
+				354BBD0C235690A1003574EA /* SearchSceneInteractor.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		354BBD1723569118003574EA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				354BBD13235690A7003574EA /* Search */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		354BBD1823569141003574EA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				35914F9623568613005297D8 /* Main.storyboard */,
+				35914F9B23568615005297D8 /* LaunchScreen.storyboard */,
+				35914F9923568615005297D8 /* Assets.xcassets */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		35914F8623568613005297D8 = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +118,10 @@
 		35914F9123568613005297D8 /* Pulentunes */ = {
 			isa = PBXGroup;
 			children = (
-				35914F9223568613005297D8 /* AppDelegate.swift */,
-				35914F9423568613005297D8 /* ViewController.swift */,
-				35914F9623568613005297D8 /* Main.storyboard */,
-				35914F9923568615005297D8 /* Assets.xcassets */,
-				35914F9B23568615005297D8 /* LaunchScreen.storyboard */,
 				35914F9E23568615005297D8 /* Info.plist */,
+				35914F9223568613005297D8 /* AppDelegate.swift */,
+				354BBD1823569141003574EA /* UI */,
+				354BBD1723569118003574EA /* Scenes */,
 			);
 			path = Pulentunes;
 			sourceTree = "<group>";
@@ -197,8 +236,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35914F9523568613005297D8 /* ViewController.swift in Sources */,
+				354BBD0F235690A1003574EA /* SearchSceneRouter.swift in Sources */,
+				354BBD11235690A1003574EA /* SearchSceneViewController.swift in Sources */,
+				354BBD0E235690A1003574EA /* SearchSceneWorker.swift in Sources */,
 				35914F9323568613005297D8 /* AppDelegate.swift in Sources */,
+				354BBD12235690A1003574EA /* SearchSceneInteractor.swift in Sources */,
+				354BBD10235690A1003574EA /* SearchSceneModels.swift in Sources */,
+				354BBD0D235690A1003574EA /* SearchScenePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
