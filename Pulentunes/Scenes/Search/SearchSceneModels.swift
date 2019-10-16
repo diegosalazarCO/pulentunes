@@ -29,3 +29,12 @@ enum SearchScene
     }
   }
 }
+
+struct SearchListViewModel {
+    struct Item {
+        let title: String
+        let coverImage: UIImage?
+        let artist: String
+        let album: String
+    }
+}

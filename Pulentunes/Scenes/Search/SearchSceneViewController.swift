@@ -12,78 +12,101 @@
 
 import UIKit
 
-protocol SearchSceneDisplayLogic: class
-{
-  func displaySomething(viewModel: SearchScene.Something.ViewModel)
+protocol SearchSceneDisplayLogic: class {
+    func displaySomething(viewModel: SearchScene.Something.ViewModel)
 }
 
-class SearchSceneViewController: UIViewController, SearchSceneDisplayLogic
-{
-  var interactor: SearchSceneBusinessLogic?
-  var router: (NSObjectProtocol & SearchSceneRoutingLogic & SearchSceneDataPassing)?
-
-  // MARK: Object lifecycle
+class SearchSceneViewController: UIViewController, SearchSceneDisplayLogic {
+    var interactor: SearchSceneBusinessLogic?
+    var router: (NSObjectProtocol & SearchSceneRoutingLogic & SearchSceneDataPassing)?
+    @IBOutlet weak var listTableView: UITableView!
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
+    // MARK: View lifecycle
   
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = SearchSceneInteractor()
-    let presenter = SearchScenePresenter()
-    let router = SearchSceneRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        doSomething()
+        listTableView.delegate = self
+        listTableView.dataSource = self
     }
-  }
   
-  // MARK: View lifecycle
+    // MARK: Do something
   
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
+    //@IBOutlet weak var nameTextField: UITextField!
   
-  // MARK: Do something
+    func doSomething() {
+        let request = SearchScene.Something.Request()
+        interactor?.doSomething(request: request)
+    }
   
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = SearchScene.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: SearchScene.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    func displaySomething(viewModel: SearchScene.Something.ViewModel) {
+        //nameTextField.text = viewModel.name
+    }
+}
+
+extension SearchSceneViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchListTableViewCell.identifier, for: indexPath) as? SearchListTableViewCell else {
+            return UITableViewCell()
+        }
+        let item = SearchListViewModel.Item(title: "With or without u",
+                                            coverImage: UIImage(named: "dafaultAlbum"),
+                                            artist: "Sting",
+                                            album: "About us")
+        cell.setup(forViewModel: item)
+        
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension SearchSceneViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Segue
+    }
+}
+
+// MARK: Routing
+
+extension SearchSceneViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+}
+
+private extension SearchSceneViewController {
+    // MARK: Setup
+    
+    private func setup() {
+        let viewController = self
+        let interactor = SearchSceneInteractor()
+        let presenter = SearchScenePresenter()
+        let router = SearchSceneRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
 }
