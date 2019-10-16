@@ -12,12 +12,12 @@
 
 import UIKit
 
-protocol SearchSceneDisplayLogic: class {
-    func displaySomething(viewModel: SearchScene.Something.ViewModel)
+protocol SearchSceneViewProtocol: class {
+    func displaySomething()
 }
 
-class SearchSceneViewController: UIViewController, SearchSceneDisplayLogic {
-    var interactor: SearchSceneBusinessLogic?
+class SearchSceneViewController: UIViewController, SearchSceneViewProtocol {
+    var interactor: SearchSceneInteractorProtocol?
     var router: (NSObjectProtocol & SearchSceneRoutingLogic & SearchSceneDataPassing)?
     @IBOutlet weak var listTableView: UITableView!
   
@@ -25,21 +25,18 @@ class SearchSceneViewController: UIViewController, SearchSceneDisplayLogic {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         doSomething()
-        listTableView.delegate = self
-        listTableView.dataSource = self
     }
   
     // MARK: Do something
-  
-    //@IBOutlet weak var nameTextField: UITextField!
-  
     func doSomething() {
-        let request = SearchScene.Something.Request()
-        interactor?.doSomething(request: request)
+        //let request = SearchScene.Something.Request()
+        interactor?.search()
+        //interactor?.doSomething(request: request)
     }
   
-    func displaySomething(viewModel: SearchScene.Something.ViewModel) {
+    func displaySomething() {
         //nameTextField.text = viewModel.name
     }
 }
@@ -108,5 +105,8 @@ private extension SearchSceneViewController {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+        listTableView.delegate = self
+        listTableView.dataSource = self
+        listTableView.separatorStyle = .none
     }
 }

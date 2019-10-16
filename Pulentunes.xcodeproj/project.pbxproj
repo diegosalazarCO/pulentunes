@@ -15,6 +15,14 @@
 		354BBD12235690A1003574EA /* SearchSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD0C235690A1003574EA /* SearchSceneInteractor.swift */; };
 		354BBD1C23569644003574EA /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD1B23569644003574EA /* SearchModel.swift */; };
 		354BBD1F2356A0E4003574EA /* SearchListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD1E2356A0E4003574EA /* SearchListTableViewCell.swift */; };
+		354BBD212356B582003574EA /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD202356B582003574EA /* NetworkProvider.swift */; };
+		354BBD232356B5E4003574EA /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD222356B5E4003574EA /* EndpointType.swift */; };
+		354BBD252356B626003574EA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD242356B626003574EA /* HTTPMethod.swift */; };
+		354BBD272356B637003574EA /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD262356B637003574EA /* HTTPTask.swift */; };
+		354BBD292356B65E003574EA /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD282356B65E003574EA /* NetworkResponse.swift */; };
+		354BBD2B2356B6A0003574EA /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD2A2356B6A0003574EA /* ParameterEncoding.swift */; };
+		354BBD2D2356B6D9003574EA /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD2C2356B6D9003574EA /* URLParameterEncoder.swift */; };
+		354BBD322356BD9D003574EA /* FetchSearchMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BBD312356BD9D003574EA /* FetchSearchMedia.swift */; };
 		35914F9323568613005297D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35914F9223568613005297D8 /* AppDelegate.swift */; };
 		35914F9823568613005297D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35914F9623568613005297D8 /* Main.storyboard */; };
 		35914F9A23568615005297D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35914F9923568615005297D8 /* Assets.xcassets */; };
@@ -41,6 +49,14 @@
 		354BBD0C235690A1003574EA /* SearchSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSceneInteractor.swift; sourceTree = "<group>"; };
 		354BBD1B23569644003574EA /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		354BBD1E2356A0E4003574EA /* SearchListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListTableViewCell.swift; sourceTree = "<group>"; };
+		354BBD202356B582003574EA /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		354BBD222356B5E4003574EA /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
+		354BBD242356B626003574EA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		354BBD262356B637003574EA /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		354BBD282356B65E003574EA /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		354BBD2A2356B6A0003574EA /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		354BBD2C2356B6D9003574EA /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		354BBD312356BD9D003574EA /* FetchSearchMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSearchMedia.swift; sourceTree = "<group>"; };
 		35914F8F23568613005297D8 /* Pulentunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulentunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35914F9223568613005297D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35914F9723568613005297D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +122,10 @@
 			isa = PBXGroup;
 			children = (
 				354BBD1B23569644003574EA /* SearchModel.swift */,
+				354BBD222356B5E4003574EA /* EndpointType.swift */,
+				354BBD242356B626003574EA /* HTTPMethod.swift */,
+				354BBD262356B637003574EA /* HTTPTask.swift */,
+				354BBD282356B65E003574EA /* NetworkResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -116,6 +136,32 @@
 				354BBD1E2356A0E4003574EA /* SearchListTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		354BBD2E2356BA88003574EA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				354BBD202356B582003574EA /* NetworkProvider.swift */,
+				354BBD2A2356B6A0003574EA /* ParameterEncoding.swift */,
+				354BBD2C2356B6D9003574EA /* URLParameterEncoder.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		354BBD2F2356BD62003574EA /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				354BBD302356BD69003574EA /* Fetch */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		354BBD302356BD69003574EA /* Fetch */ = {
+			isa = PBXGroup;
+			children = (
+				354BBD312356BD9D003574EA /* FetchSearchMedia.swift */,
+			);
+			path = Fetch;
 			sourceTree = "<group>";
 		};
 		35914F8623568613005297D8 = {
@@ -142,7 +188,9 @@
 				35914F9E23568615005297D8 /* Info.plist */,
 				35914F9223568613005297D8 /* AppDelegate.swift */,
 				354BBD1A23569627003574EA /* Entities */,
+				354BBD2F2356BD62003574EA /* Use Cases */,
 				354BBD1823569141003574EA /* UI */,
+				354BBD2E2356BA88003574EA /* Services */,
 				354BBD1723569118003574EA /* Scenes */,
 			);
 			path = Pulentunes;
@@ -263,10 +311,18 @@
 				354BBD0E235690A1003574EA /* SearchSceneWorker.swift in Sources */,
 				354BBD1C23569644003574EA /* SearchModel.swift in Sources */,
 				35914F9323568613005297D8 /* AppDelegate.swift in Sources */,
+				354BBD322356BD9D003574EA /* FetchSearchMedia.swift in Sources */,
+				354BBD272356B637003574EA /* HTTPTask.swift in Sources */,
 				354BBD12235690A1003574EA /* SearchSceneInteractor.swift in Sources */,
 				354BBD1F2356A0E4003574EA /* SearchListTableViewCell.swift in Sources */,
+				354BBD2D2356B6D9003574EA /* URLParameterEncoder.swift in Sources */,
 				354BBD10235690A1003574EA /* SearchSceneModels.swift in Sources */,
+				354BBD292356B65E003574EA /* NetworkResponse.swift in Sources */,
+				354BBD252356B626003574EA /* HTTPMethod.swift in Sources */,
+				354BBD232356B5E4003574EA /* EndpointType.swift in Sources */,
+				354BBD2B2356B6A0003574EA /* ParameterEncoding.swift in Sources */,
 				354BBD0D235690A1003574EA /* SearchScenePresenter.swift in Sources */,
+				354BBD212356B582003574EA /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

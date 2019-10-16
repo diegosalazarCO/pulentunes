@@ -12,24 +12,6 @@
 
 import UIKit
 
-enum SearchScene
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
-    }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
-}
-
 struct SearchListViewModel {
     struct Item {
         let title: String

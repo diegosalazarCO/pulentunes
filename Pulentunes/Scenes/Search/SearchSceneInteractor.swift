@@ -12,30 +12,34 @@
 
 import UIKit
 
-protocol SearchSceneBusinessLogic
-{
-  func doSomething(request: SearchScene.Something.Request)
+protocol SearchSceneInteractorProtocol {
+    func search()
 }
 
-protocol SearchSceneDataStore
-{
+protocol SearchSceneDataStore {
   //var name: String { get set }
 }
 
-class SearchSceneInteractor: SearchSceneBusinessLogic, SearchSceneDataStore
-{
-  var presenter: SearchScenePresentationLogic?
-  var worker: SearchSceneWorker?
-  //var name: String = ""
+class SearchSceneInteractor: SearchSceneInteractorProtocol, SearchSceneDataStore {
+    var presenter: SearchScenePresentationProtocol?
+    var worker: SearchSceneWorker?
+
+    // MARK: Do something
   
-  // MARK: Do something
-  
-  func doSomething(request: SearchScene.Something.Request)
-  {
-    worker = SearchSceneWorker()
-    worker?.doSomeWork()
+    func doSomething() {
+        worker = SearchSceneWorker()
+        worker?.doSomeWork()
+
+        //let response = SearchScene.Something.Response()
+        //presenter?.presentSomething(response: response)
+    }
     
-    let response = SearchScene.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    func search() {
+        let fetchSearch = FetchSearchMedia.shared
+        fetchSearch.search(text: "love", completion: { (result) in
+            print(result)
+        }) { (error) in
+            print(error)
+        }
+    }
 }
