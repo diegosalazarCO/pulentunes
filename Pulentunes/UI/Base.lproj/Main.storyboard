@@ -80,6 +80,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ih3-HF-KNm"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,6 +100,7 @@
                     <navigationItem key="navigationItem" title="Pulentunes" prompt="Search" largeTitleDisplayMode="always" id="hiq-tM-e9c"/>
                     <connections>
                         <outlet property="listTableView" destination="taE-wP-zPs" id="TYe-Ja-buH"/>
+                        <outlet property="searchBar" destination="yh2-EO-8Lp" id="INb-AC-Jme"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

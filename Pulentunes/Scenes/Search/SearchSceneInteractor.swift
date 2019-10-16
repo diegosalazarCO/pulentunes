@@ -13,7 +13,7 @@
 import UIKit
 
 protocol SearchSceneInteractorProtocol {
-    func search()
+    func search(text: String)
 }
 
 protocol SearchSceneDataStore {
@@ -23,11 +23,11 @@ class SearchSceneInteractor: SearchSceneInteractorProtocol, SearchSceneDataStore
     var presenter: SearchScenePresentationProtocol?
     var worker: SearchSceneWorker?
 
-    func search() {
+    func search(text: String) {
         worker = SearchSceneWorker()
         let fetchSearch = FetchSearchMedia.shared
         
-        fetchSearch.search(text: "love", completion: { (result) in
+        fetchSearch.search(text: text, completion: { (result) in
             guard let results = self.worker?.transformData(result.results) else { return }
             self.presenter?.presentResults(results: results)
         }) { (error) in
