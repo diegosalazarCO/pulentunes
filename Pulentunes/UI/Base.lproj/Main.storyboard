@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vVL-Zp-ADM">
-                                                    <rect key="frame" x="20" y="10" width="199" height="100"/>
+                                                    <rect key="frame" x="20" y="10" width="379" height="100"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dafaultAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="P76-ta-nh4">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -40,17 +40,17 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R5e-o2-UvG">
-                                                            <rect key="frame" x="120" y="21.5" width="79" height="57"/>
+                                                            <rect key="frame" x="120" y="22" width="259" height="56"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roxane" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyG-p5-vhJ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roxane" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyG-p5-vhJ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="71" height="26.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Police" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEz-BL-w5p">
-                                                                    <rect key="frame" x="0.0" y="36.5" width="79" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="36.5" width="75" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -60,6 +60,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="vVL-Zp-ADM" secondAttribute="trailing" constant="15" id="JaQ-V0-tCM"/>
                                                 <constraint firstItem="vVL-Zp-ADM" firstAttribute="centerY" secondItem="tz7-x9-kQ7" secondAttribute="centerY" id="h3w-Jd-056"/>
                                                 <constraint firstItem="vVL-Zp-ADM" firstAttribute="leading" secondItem="tz7-x9-kQ7" secondAttribute="leadingMargin" id="n2S-Wq-5cC"/>
                                             </constraints>
@@ -74,11 +75,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="yh2-EO-8Lp">
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="prominent" placeholder="Type a song you like" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yh2-EO-8Lp">
                                 <rect key="frame" x="0.0" y="122" width="414" height="56"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

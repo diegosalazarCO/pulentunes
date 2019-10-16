@@ -17,27 +17,19 @@ protocol SearchSceneInteractorProtocol {
 }
 
 protocol SearchSceneDataStore {
-  //var name: String { get set }
 }
 
 class SearchSceneInteractor: SearchSceneInteractorProtocol, SearchSceneDataStore {
     var presenter: SearchScenePresentationProtocol?
     var worker: SearchSceneWorker?
 
-    // MARK: Do something
-  
-    func doSomething() {
-        worker = SearchSceneWorker()
-        worker?.doSomeWork()
-
-        //let response = SearchScene.Something.Response()
-        //presenter?.presentSomething(response: response)
-    }
-    
     func search() {
+        worker = SearchSceneWorker()
         let fetchSearch = FetchSearchMedia.shared
+        
         fetchSearch.search(text: "love", completion: { (result) in
-            print(result)
+            guard let results = self.worker?.transformData(result.results) else { return }
+            self.presenter?.presentResults(results: results)
         }) { (error) in
             print(error)
         }

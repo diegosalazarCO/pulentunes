@@ -13,16 +13,15 @@
 import UIKit
 
 protocol SearchScenePresentationProtocol {
-    func presentSomething()
+    func presentResults(results: [SearchListViewModel.Item])
 }
 
 class SearchScenePresenter: SearchScenePresentationProtocol {
     weak var viewController: SearchSceneViewProtocol?
 
-    // MARK: Do something
+    // MARK: Present
 
-    func presentSomething() {
-        //let viewModel = SearchScene.Something.ViewModel()
-        //viewController?.displaySomething(viewModel: viewModel)
+    func presentResults(results: [SearchListViewModel.Item]) {
+        viewController?.displayList(withViewModel: results)
     }
 }

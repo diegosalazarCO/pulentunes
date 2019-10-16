@@ -12,9 +12,16 @@
 
 import UIKit
 
-class SearchSceneWorker
-{
-  func doSomeWork()
-  {
-  }
+class SearchSceneWorker {
+    func transformData(_ model: [SearchModel]) -> [SearchListViewModel.Item] {
+        let data: [SearchListViewModel.Item] = model.map({
+            let item = SearchListViewModel.Item(title: $0.trackName,
+                                                coverImage: $0.artworkUrl100,
+                                                artist: $0.artistName,
+                                                album: $0.collectionName)
+            return item
+        })
+        
+        return data
+    }
 }

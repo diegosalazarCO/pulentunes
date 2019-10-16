@@ -15,7 +15,7 @@ import UIKit
 struct SearchListViewModel {
     struct Item {
         let title: String
-        let coverImage: UIImage?
+        let coverImage: String?
         let artist: String
         let album: String
     }

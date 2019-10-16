@@ -18,10 +18,17 @@ class SearchListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     
+    override func prepareForReuse() {
+        coverImageView?.image = #imageLiteral(resourceName: "dafaultAlbum")
+        titleLabel?.textColor = .white
+        artistLabel?.textColor = .white
+    }
     
     func setup(forViewModel viewModel: SearchListViewModel.Item) {
         titleLabel.text = viewModel.title
         artistLabel.text = viewModel.artist
-        coverImageView.image = viewModel.coverImage
+        if let imageUrl = viewModel.coverImage {
+            coverImageView.downloadImage(from: imageUrl)
+        }
     }
 }

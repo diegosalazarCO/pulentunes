@@ -13,12 +13,14 @@
 import UIKit
 
 protocol SearchSceneViewProtocol: class {
-    func displaySomething()
+    func displayList(withViewModel viewModel: [SearchListViewModel.Item])
 }
 
 class SearchSceneViewController: UIViewController, SearchSceneViewProtocol {
+    
     var interactor: SearchSceneInteractorProtocol?
     var router: (NSObjectProtocol & SearchSceneRoutingLogic & SearchSceneDataPassing)?
+    private var songsListViewModel = [SearchListViewModel.Item]()
     @IBOutlet weak var listTableView: UITableView!
   
     // MARK: View lifecycle
@@ -31,13 +33,12 @@ class SearchSceneViewController: UIViewController, SearchSceneViewProtocol {
   
     // MARK: Do something
     func doSomething() {
-        //let request = SearchScene.Something.Request()
         interactor?.search()
-        //interactor?.doSomething(request: request)
     }
   
-    func displaySomething() {
-        //nameTextField.text = viewModel.name
+    func displayList(withViewModel viewModel: [SearchListViewModel.Item]) {
+        songsListViewModel = viewModel
+        listTableView.reloadData()
     }
 }
 
@@ -48,17 +49,15 @@ extension SearchSceneViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return songsListViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchListTableViewCell.identifier, for: indexPath) as? SearchListTableViewCell else {
             return UITableViewCell()
         }
-        let item = SearchListViewModel.Item(title: "With or without u",
-                                            coverImage: UIImage(named: "dafaultAlbum"),
-                                            artist: "Sting",
-                                            album: "About us")
+        
+        let item = songsListViewModel[indexPath.row]
         cell.setup(forViewModel: item)
         
         return cell
@@ -74,7 +73,7 @@ extension SearchSceneViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Segue
+        // Detail view
     }
 }
 
